@@ -241,7 +241,7 @@ window.addEventListener('resize', checkScreenSize);
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--accent);
+            background: black;
             color: white;
             border: none;
             cursor: pointer;

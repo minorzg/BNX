@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SHOP DGH | Creative Resources</title>
+  <title>BNX Production</title>
   <link rel="icon" type="image/x-icon" href="assets/images/shark.png">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,22 +12,26 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
-      <a href="/" class="logo">
-        <img src="assets/images/shark.png" alt="SHOP DGH">
+      <a href="index.html" class="logo">
+        <img src="assets/images/shark.png" alt="SHOP BNX">
       </a>
 
       <div class="nav-menu">
 
         <div class="nav-item dropdown">
-          <button class="nav-link dropdown-toggle">Products +</button>
+          <button class="nav-link dropdown-toggle" onclick="document.querySelector('.products-showcase').scrollIntoView({behavior: 'smooth'})">Products +</button>
         </div>
 
         <div class="nav-item dropdown">
-          <button class="nav-link dropdown-toggle">Feedbacks +</button>
+          <button class="nav-link dropdown-toggle" onclick="document.querySelector('.tutorials').scrollIntoView({behavior: 'smooth'})" >Youtube +</button>
         </div>
 
         <div class="nav-item dropdown">
-          <button class="nav-link dropdown-toggle" onclick="document.querySelector('')" >Learn +</button>
+          <button class="nav-link dropdown-toggle" onclick="document.querySelector('.features2').scrollIntoView({behavior: 'smooth'})">Feedbacks +</button>
+        </div>
+
+          <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="works.html">Works +</a>
         </div>
 
         <div class="nav-item dropdown">
@@ -57,7 +61,7 @@
   </div>
 
 <!-- Hero Section with Video -->
-<section class="hero">
+<section class="hero" id="hero">
   <!-- Desktop video -->
   <video class="hero-video desktop-video" autoplay muted loop playsinline>
     <source src="assets/videos/Brand_tutorial-.mp4" type="video/mp4">
@@ -70,9 +74,9 @@
 </section>
 
   <!-- Products Showcase -->
-  <section class="products-showcase">
+  <section class="products-showcase" id="products">
     <div class="container">
-      <h1 class="section-title">BNX PSD Packs</h1>
+      <h1 class="section-title">BNX PSD Packs</h1><br>
       <p class="section-subtitle">Fully customizable project files for Adobe Photoshop</p>
       
       <div class="product-grid">
@@ -85,21 +89,21 @@
 <p>• Easy photo replacement</p>
 <p>• Customizable gradients & typography</p>
 <p>• Ready for YouTube / social / pitch decks</p>
-
+<a href="https://buymeacoffee.com/fullypaid/e/507610" class="btn-outline">BUY</a>
         </div>
 
         <div class="product-card">
           <img src="assets/images/2.gif" alt="BNX Profile Banner ( DEAD PALMS )">
           <h3>BNX Profile Banner ( DEAD PALMS )</h3>
           <p>Unlock professional design with BNX PSD files fully editable and ready to elevate your projects. Perfect for gaming, branding, and creative endeavors.</p>
-
+          <a href="https://buymeacoffee.com/fullypaid/e/483580" class="btn-outline">BUY</a>
         </div>
 
         <div class="product-card">
           <img src="assets/images/3.png" alt="BNX BANNER PSD ( GRAVE HOOD )">
           <h3>BNX BANNER PSD ( GRAVE HOOD )</h3>
           <p>Unlock professional design with BNX PSD files fully editable and ready to elevate your projects. Perfect for gaming, branding, and creative endeavors.</p>
-
+          <a href="https://buymeacoffee.com/fullypaid/e/341909" class="btn-outline">BUY</a>
         </div>
 
         <div class="product-card">
@@ -115,13 +119,13 @@ Fan & Designer Friendly: Great for personal projects, edits, or portfolio work
 
 </p>
 <p>📂 Delivered as a PSD file – ready to open and explore in Photoshop.</p>
-
+<a href="https://buymeacoffee.com/fullypaid/e/463887" class="btn-outline">BUY</a>
         </div>
       </div>
 
       <div class="cta-section">
-        <a href="#" class="btn-primary">GET VOL. 1 BUNDLE</a>
-        <a href="#" class="btn-outline">VIEW ALL PACKS</a>
+        <a href="https://discord.gg/KfQzv6wJ" class="cta-btn">Discord</a>
+        <a href="https://buymeacoffee.com/fullypaid" class="btn-outline">Become a member</a>
       </div>
     </div>
   </section>
@@ -131,78 +135,107 @@ Fan & Designer Friendly: Great for personal projects, edits, or portfolio work
     <div class="container">
       <div class="feature-grid">
         <div class="feature-item">
-          <img src="assets/images/shark.png" alt="Download">
-          <h3>Instant download so you can get to work right away.</h3>
+          <img src="assets/images/review.png" alt="Download">
+          <h3>+160 clients</h3>
         </div>
         <div class="feature-item">
-          <img src="assets/images/shark.png" alt="No subscription">
-          <h3>No subscriptions. Pay once and own them forever.</h3>
+          <img src="assets/images/people.png" alt="No subscription">
+          <h3>+80 Communities Rebranded</h3>
         </div>
         <div class="feature-item">
-          <img src="assets/images/shark.png" alt="Streamline">
-          <h3>Built to enhance your projects & streamline your flow.</h3>
+          <img src="assets/images/shield.png" alt="Streamline">
+          <h3>Trusted by Online Brands & Creators</h3>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Tutorials Section -->
-  <section class="tutorials">
+  <section class="tutorials" id="tutorials">
     <div class="container">
-      <h2 class="section-title">Tools in Use</h2>
-      <p class="section-subtitle">See the tools live in real personal and client builds</p>
-      
+      <h2 class="section-title">Youtube +</h2>
+      <!--<p class="section-subtitle">See the tools live in real personal and client builds</p>-->
       <div class="video-grid">
         <div class="video-card">
           <div class="video-wrapper">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AeZ50i1y2jI?si=V6qlFjcqEi7WMjPp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/AeZ50i1y2jI?si=V6qlFjcqEi7WMjPp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         </div>
         <div class="video-card">
           <div class="video-wrapper">
-           <iframe width="560" height="315" src="https://www.youtube.com/embed/-E7ToG3Km0w?si=iUp5vOISBj5EGzXa&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/Y1GVW0P6aEQ?si=GVFnaJ3bnAI7xSDO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
+  <br><br>
+
+  <!-- Features Section  2  -->
+  <section class="features2" id="feedbacks">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-column">
-          <h4>Explore Products</h4>
-          <ul>
-            <li><a href="pages/volume-1-bundle.html">Volume 1. Bundle</a></li>
-            <li><a href="pages/grunge-painter.html">Grunge Painter</a></li>
-            <li><a href="pages/gradient-mapper.html">Gradient Mapper</a></li>
-            <li><a href="pages/grunge-textures.html">Grunge Textures</a></li>
-            <li><a href="pages/grid-controller.html">Grid Controller</a></li>
-          </ul>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <img src="assets/images/c1.png" alt="Download">
+          <h1>[DAME]</h1>
+          <h3>The best I’ve ever seen works nice and knows how to work with customers 🔥🔥🔥🔥🔥💫</h3>
         </div>
-
-        <div class="footer-column">
-          <h4>Contact & Socials</h4>
-          <ul>
-            <li><a href="https://www.instagram.com/realfullypaid?igsh=cms1bHpwcjV5eTEz" target="_blank">Instagram</a></li>
-            <li><a href="https://www.youtube.com/@fullypxid" target="_blank">YouTube</a></li>
-            <li><a href="https://discord.gg/uk9vvtRABV" target="_blank">Discord</a></li>
-            <li><a href="pages/contact-form.html">Contact</a></li>
-          </ul>
+        <div class="feature-item">
+          <img src="assets/images/c2.png" alt="No subscription">
+          <h1>Wixk</h1>
+          <h3>Awesome work. I recommend and will be coming back in to future</h3>
         </div>
-
-        <div class="footer-column newsletter">
-          <h4>Newsletter</h4>
-          <p>Sign up to my newsletter for design assets and updates.</p>
-          <form class="newsletter-form" id="newsletterForm">
-            <input type="email" placeholder="Email Address" required>
-            <button type="submit" class="btn-primary">Join The Community</button>
-          </form>
+        <div class="feature-item">
+          <img src="assets/images/c3.png" alt="Streamline">
+          <h1>GmoneY</h1> 
+            5/5  ⭐️⭐️⭐️⭐️⭐️ HIGHLY RECOMMENDED ‼️‼️‼️
+          </h3>
         </div>
+        
       </div>
     </div>
-  </footer>
+  </section>
+
+<br><br><br><br>
+
+  <!-- Footer -->
+<!-- Footer -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-column">
+        <h4>FullyPaid</h4>
+        <p class="footer-description">
+          Premium digital products, exclusive content and a strong community.
+          Built for creators who want to level up.
+        </p>
+      </div>
+
+
+      <!-- Contact & Socials -->
+      <div class="footer-column">
+        <h4>Contact & Socials</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/realfullypaid?igsh=cms1bHpwcjV5eTEz" target="_blank">Instagram</a></li>
+          <li><a href="https://www.youtube.com/@fullypxid" target="_blank">YouTube</a></li>
+          <li><a href="https://discord.gg/uk9vvtRABV" target="_blank">Discord</a></li>
+          <li><a href="https://buymeacoffee.com/fullypaid">Donate</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar 
+    <div class="footer-bottom">
+      <p>© 2026 FullyPaid. All rights reserved.</p>
+    </div>
+    -->
+
+  </div>
+</footer>
 
   <script src="js/main.js"></script>
 </body>

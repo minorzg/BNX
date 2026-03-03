@@ -1,0 +1,20 @@
+dgh-website/
+├── index.html
+├── pages/
+│   ├── volume-1-bundle.html
+│   ├── grunge-textures.html
+│   ├── grunge-painter.html
+│   ├── gradient-mapper.html
+│   ├── grid-controller.html
+│   ├── prints.html
+│   ├── tutorials.html
+│   ├── process.html
+│   ├── me-and-my-studio.html
+│   └── contact-form.html
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+└── assets/
+    ├── images/
+    └── videos/
