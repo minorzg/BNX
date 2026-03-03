@@ -1,95 +1,6 @@
 // Main JavaScript file
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const navbar = document.querySelector('.navbar');
-
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileMenu.classList.toggle('open');
-            document.body.classList.toggle('no-scroll');
-            
-            // Animate burger icon
-            const spans = this.querySelectorAll('span');
-            spans.forEach(span => span.classList.toggle('active'));
-        });
-    }
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (mobileMenu && mobileMenu.classList.contains('open')) {
-            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-                mobileMenu.classList.remove('open');
-                document.body.classList.remove('no-scroll');
-            }
-        }
-    });
-
-    // Mobile Menu Accordion
-    const createMobileMenu = () => {
-        if (!mobileMenu) return;
-
-        const menuItems = [
-            {
-                title: 'Products',
-                links: [
-                    { text: 'Volume 1. Bundle', url: 'pages/volume-1-bundle.html' },
-                    { text: 'Grunge Textures', url: 'pages/grunge-textures.html' },
-                    { text: 'Grunge Painter', url: 'pages/grunge-painter.html' },
-                    { text: 'Grid Controller', url: 'pages/grid-controller.html' },
-                    { text: 'Gradient Mapper', url: 'pages/gradient-mapper.html' },
-                    { text: 'Prints', url: 'pages/prints.html' }
-                ]
-            },
-            {
-                title: 'Learn',
-                links: [
-                    { text: 'Tutorials', url: 'pages/tutorials.html' },
-                    { text: 'Process', url: 'pages/process.html' }
-                ]
-            },
-            {
-                title: 'About',
-                links: [
-                    { text: 'Me & My Studio', url: 'pages/me-and-my-studio.html' }
-                ]
-            },
-            {
-                title: 'Contact',
-                links: [
-                    { text: 'Contact Form', url: 'pages/contact-form.html' }
-                ]
-            }
-        ];
-
-        let html = '';
-        menuItems.forEach(item => {
-            html += `
-                <div class="mobile-accordion">
-                    <button class="mobile-accordion-btn">${item.title}</button>
-                    <div class="mobile-accordion-panel">
-                        ${item.links.map(link => `<a href="${link.url}">${link.text}</a>`).join('')}
-                    </div>
-                </div>
-            `;
-        });
-
-        mobileMenu.innerHTML = html;
-
-        // Add accordion functionality
-        const accordionBtns = mobileMenu.querySelectorAll('.mobile-accordion-btn');
-        accordionBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const accordion = this.parentElement;
-                accordion.classList.toggle('open');
-            });
-        });
-    };
-
-    createMobileMenu();
-
     // Video autoplay handling
 // Video handling - Version corrigée
 const videos = document.querySelectorAll('video');
@@ -330,3 +241,129 @@ function createProductPage(product) {
         </html>
     `;
 }
+// --- LOGIQUE MENU MOBILE AVEC FERMETURE EXTERIEURE ---
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    // 1. Vider le menu mobile et ajouter le bouton X
+    mobileMenu.innerHTML = '';
+    
+    // Ajouter le bouton de fermeture
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'close-btn';
+    closeBtn.innerHTML = '✕';
+    closeBtn.setAttribute('aria-label', 'Fermer le menu');
+    mobileMenu.appendChild(closeBtn);
+    
+    // 2. Ajouter les liens du menu (version simplifiée qui fonctionne partout)
+    const navLinks = document.querySelectorAll('.nav-menu .nav-item');
+
+    if (navLinks.length > 0) {
+        // On a trouvé des éléments, on les clone
+        navLinks.forEach(item => {
+            const clone = item.cloneNode(true);
+            mobileMenu.appendChild(clone);
+        });
+    } else {
+        // Fallback: on crée les liens manuellement
+        const menuItems = [
+            { text: 'Products +', href: 'index.html#products' },
+            { text: 'Youtube +', href: 'index.html#tutorials' },
+            { text: 'Feedbacks +', href: 'index.html#feedbacks' },
+            { text: 'Works +', href: 'works.html' },
+            { text: 'Contact +', href: '#footer' },
+            { text: 'Join Discord', href: 'https://discord.gg/Rgk9ZSyy', isDiscord: true }
+        ];
+        
+        menuItems.forEach(item => {
+            const navItem = document.createElement('div');
+            navItem.className = 'nav-item';
+            
+            if (item.isDiscord) {
+                const discordLink = document.createElement('a');
+                discordLink.href = item.href;
+                discordLink.className = 'discord-btn';
+                discordLink.target = '_blank';
+                discordLink.rel = 'noopener noreferrer';
+                discordLink.innerHTML = `<i class="fab fa-discord"></i>${item.text}`;
+                navItem.appendChild(discordLink);
+            } else {
+                const link = document.createElement('a');
+                link.href = item.href;
+                link.className = 'nav-link';
+                link.textContent = item.text;
+                navItem.appendChild(link);
+            }
+            mobileMenu.appendChild(navItem);
+        });
+    }
+
+    // 3. Fonction pour fermer le menu
+    function closeMobileMenu() {
+        mobileMenu.classList.remove('open');
+        
+        // Remettre le burger à l'état normal
+        if (mobileBtn) {
+            const spans = mobileBtn.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+            mobileBtn.classList.remove('active');
+        }
+    }
+
+    // 4. Fermeture quand on clique sur le X
+    if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeMobileMenu();
+        });
+    }
+
+    // 5. Ouverture quand on clique sur le burger
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('open');
+            
+            // Animation du burger
+            const spans = mobileBtn.querySelectorAll('span');
+            mobileBtn.classList.toggle('active');
+            if(mobileBtn.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+    }
+
+    // 6. Fermeture quand on clique sur un lien
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', (e) => {
+            if(e.target.classList.contains('nav-link') || e.target.closest('.nav-link') || e.target.closest('.discord-btn')) {
+                closeMobileMenu();
+            }
+        });
+    }
+
+    // 7. Fermeture quand on clique EN DEHORS du menu
+    document.addEventListener('click', (e) => {
+        if (mobileMenu && mobileMenu.classList.contains('open') && 
+            !mobileMenu.contains(e.target) && 
+            mobileBtn && !mobileBtn.contains(e.target)) {
+            closeMobileMenu();
+        }
+    });
+
+    // 8. Empêcher la fermeture quand on clique DANS le menu
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+});
